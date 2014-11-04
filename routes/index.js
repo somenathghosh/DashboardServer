@@ -72,10 +72,11 @@ exports.lockboxKeyInHome = function(req, res){
 	var query = url.parse(req.url,true).query;
 	var groupCode 	= query.forGroupCode;
 	var siteNumber 	= query.forSiteNumber;
+	var org = query.forOrg;
 	var lockboxKeyIn = {};
 
 
-	if(groupCode && siteNumber){
+	if(groupCode && siteNumber && org){
 
 		//put code for filter
 
@@ -122,6 +123,114 @@ exports.claimHome = function(req, res){
 	
 
 
-}
+};
+
+
+
+
+exports.lockboxInboundDetail = function(req, res){
+	var query = url.parse(req.url,true).query;
+	var groupCode 	= query.forGroupCode;
+	var siteNumber 	= query.forSiteNumber;
+	var lockboxInboundDetailList = {};
+
+
+	if(groupCode && siteNumber){
+
+		//put code for filter
+
+	}
+	else{
+
+		for (var stepCount =1 ; stepCount<= 9 ; stepCount++){
+			//console.log(stepCount);
+			var step = "STEP" + stepCount;
+			lockboxInboundDetailList[step] = {};
+			lockboxInboundDetailList[step]["fileInProcess"] = Math.floor((Math.random() * 1000) + 1);
+			lockboxInboundDetailList[step]["fileInError"] = Math.floor((Math.random() * 10) + 1);
+
+
+		}
+		
+		res.send(lockboxInboundDetailList);
+
+	}
+
+	
+
+
+};
+
+
+exports.lockboxOutboundDetail = function(req, res){
+	var query = url.parse(req.url,true).query;
+	var groupCode 	= query.forGroupCode;
+	var siteNumber 	= query.forSiteNumber;
+	var lockboxOutboundDetailList = {};
+
+
+	if(groupCode && siteNumber){
+
+		//put code for filter
+
+	}
+	else{
+
+		for (var stepCount =1 ; stepCount<= 7 ; stepCount++){
+			//console.log(stepCount);
+			var step = "STEP" + stepCount;
+			lockboxOutboundDetailList[step] = {};
+			lockboxOutboundDetailList[step]["fileInProcess"] = Math.floor((Math.random() * 1000) + 1);
+			lockboxOutboundDetailList[step]["fileInError"] = Math.floor((Math.random() * 10) + 1);
+
+
+		}
+		
+		res.send(lockboxOutboundDetailList);
+
+	}
+
+	
+
+
+};
+
+
+
+
+exports.claimDetail = function(req, res){
+	var query = url.parse(req.url,true).query;
+	var groupCode 	= query.forGroupCode;
+	var siteNumber 	= query.forSiteNumber;
+	var claimDetail = {};
+
+
+	if(groupCode && siteNumber){
+
+		//put code for filter
+
+	}
+	else{
+
+		for (var stepCount =1 ; stepCount<= 5 ; stepCount++){
+			//console.log(stepCount);
+			var step = "STEP" + stepCount;
+			claimDetail[step] = {};
+			claimDetail[step]["fileInProcess"] = Math.floor((Math.random() * 1000) + 1);
+			claimDetail[step]["fileInError"] = Math.floor((Math.random() * 10) + 1);
+
+
+		}
+		
+		res.send(claimDetail);
+
+	}
+
+	
+
+
+};
+
+
 
 

@@ -27,16 +27,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', router.indexPage);
 app.get('/api/v1/dashboard/lockbox/inbound/home', cors(), router.lockboxInboundHome);
 app.get('/api/v1/dashboard/lockbox/outbound/home', cors(), router.lockboxOutboundHome);
-app.get('/api/v1/dashboard/lockbox/keyin/home', router.lockboxKeyInHome);
+app.get('/api/v1/dashboard/lockbox/keyin/home', cors(),router.lockboxKeyInHome);
 
 
 
-app.get('/api/v1/dashboard/claim/home', router.claimHome);
+app.get('/api/v1/dashboard/claim/home', cors(),router.claimHome);
+
+
+app.get('/api/v1/dashboard/lockbox/inbound/detail', cors(),router.lockboxInboundDetail);
+
+
+app.get('/api/v1/dashboard/lockbox/outbound/detail', cors(),router.lockboxOutboundDetail);
+
+
+app.get('/api/v1/dashboard/claim/detail', router.claimDetail);
+
 
 /*
-app.get('api/v1/dashboard/lockbox/inbound/detail', router.lockboxInboundDetail);
-app.get('api/v1/dashboard/lockbox/outbound/detail', router.lockboxOutboundDetail);
-app.get('api/v1/dashboard/claim/detail', router.claimDetail);
 app.get('api/v1/dashboard/lockbox/keyin/detail/worklist', router.lockboxKeyInWorkList);
 app.get('api/v1/dashboard/lockbox/keyin/detail/volume', router.lockboxKeyInVolume);
 app.get('api/v1/dashboard/lockbox/keyin/detail/batchTAT', router.lockboxKeyInBatchTAT);
