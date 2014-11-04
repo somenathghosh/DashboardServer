@@ -43,8 +43,10 @@ app.get('/api/v1/dashboard/lockbox/outbound/detail', cors(),router.lockboxOutbou
 app.get('/api/v1/dashboard/claim/detail', router.claimDetail);
 
 
+
+app.get('/api/v1/dashboard/lockbox/keyin/detail/worklist', router.lockboxKeyInWorkList);
+
 /*
-app.get('api/v1/dashboard/lockbox/keyin/detail/worklist', router.lockboxKeyInWorkList);
 app.get('api/v1/dashboard/lockbox/keyin/detail/volume', router.lockboxKeyInVolume);
 app.get('api/v1/dashboard/lockbox/keyin/detail/batchTAT', router.lockboxKeyInBatchTAT);
 app.get('api/v1/dashboard/lockbox/keyin/detail/MPI', router.lockboxKeyInMPI);

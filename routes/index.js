@@ -99,6 +99,44 @@ exports.lockboxKeyInHome = function(req, res){
 
 
 
+exports.lockboxKeyInWorkList = function(req, res){
+	var query = url.parse(req.url,true).query;
+	var groupCode 	= query.forGroupCode;
+	var siteNumber 	= query.forSiteNumber;
+	var org = query.forOrg;
+	var lockboxKeyInWorkList = {};
+
+
+	if(groupCode && siteNumber && org){
+
+		//put code for filter
+
+	}
+	else{
+
+		lockboxKeyInWorkList.assigned = Math.floor((Math.random() * 1000) + 999);
+		lockboxKeyInWorkList.unassigned = Math.floor((Math.random() * 1000) + 499);
+		lockboxKeyInWorkList.inProgress = Math.floor((Math.random() * 1000) + 100);
+		lockboxKeyInWorkList.completed = Math.floor((Math.random() * 1000) + 300);
+		lockboxKeyInWorkList.submitted = Math.floor((Math.random() * 10000) + 1);
+		lockboxKeyInWorkList.rejected = Math.floor((Math.random() * 100) + 1);
+
+		res.send(lockboxKeyInWorkList);
+
+	}
+
+	
+
+
+};
+
+
+
+
+
+
+
+
 exports.claimHome = function(req, res){
 	var query = url.parse(req.url,true).query;
 	var groupCode 	= query.forGroupCode;
