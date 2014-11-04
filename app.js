@@ -25,6 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', router.indexPage);
+
+
+app.options('/api/v1/users', cors());
+app.post('/api/v1/users', cors(), router.users);
 app.get('/api/v1/dashboard/lockbox/inbound/home', cors(), router.lockboxInboundHome);
 app.get('/api/v1/dashboard/lockbox/outbound/home', cors(), router.lockboxOutboundHome);
 app.get('/api/v1/dashboard/lockbox/keyin/home', cors(),router.lockboxKeyInHome);
