@@ -44,24 +44,31 @@ app.get('/api/v1/dashboard/lockbox/inbound/detail', cors(),router.lockboxInbound
 app.get('/api/v1/dashboard/lockbox/outbound/detail', cors(),router.lockboxOutboundDetail);
 
 
-app.get('/api/v1/dashboard/claim/detail', router.claimDetail);
+app.get('/api/v1/dashboard/claim/detail', cors(),router.claimDetail);
 
 
 
-app.get('/api/v1/dashboard/lockbox/keyin/detail/worklist', router.lockboxKeyInWorkList);
+app.get('/api/v1/dashboard/lockbox/keyin/detail/worklist', cors(), router.lockboxKeyInWorkList);
 
 /*
-app.get('api/v1/dashboard/lockbox/keyin/detail/volume', router.lockboxKeyInVolume);
-app.get('api/v1/dashboard/lockbox/keyin/detail/batchTAT', router.lockboxKeyInBatchTAT);
-app.get('api/v1/dashboard/lockbox/keyin/detail/MPI', router.lockboxKeyInMPI);
+app.get('/api/v1/dashboard/lockbox/keyin/detail/volume', cors(),router.lockboxKeyInVolume);
+app.get('/api/v1/dashboard/lockbox/keyin/detail/batchTAT', router.lockboxKeyInBatchTAT);
+app.get('/api/v1/dashboard/lockbox/keyin/detail/MPI', router.lockboxKeyInMPI);
 
 
 
-app.get('api/v1/dashboard/reports/TAT', router.reportTAT);
-app.get('api/v1/dashboard/reports/TAT/missed/sites', router.reportTATMissedSites);
-app.get('api/v1/dashboard/claim/MPI/decline/clients', router.reportClaimClients);
-app.get('api/v1/dashboard/claim/volume', router.reportClaimVolume);
-app.get('api/v1/dashboard/claim/MPI/loadTime', router.reportClaimMPILoadTime);*/
+app.get('/api/v1/dashboard/reports/TAT', router.reportTAT);
+app.get('/api/v1/dashboard/reports/TAT/missed/sites', router.reportTATMissedSites);
+app.get('/api/v1/dashboard/claim/MPI/decline/clients', router.reportClaimClients);
+app.get('/api/v1/dashboard/claim/volume', router.reportClaimVolume);
+app.get('/api/v1/dashboard/claim/MPI/loadTime', router.reportClaimMPILoadTime);
+
+app.get('/api/v1/dashboard/groups', cors(), router.groupCode);
+
+
+
+
+*/
 
 
 

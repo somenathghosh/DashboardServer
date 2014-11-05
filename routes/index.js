@@ -20,6 +20,11 @@ exports.lockboxInboundHome = function(req, res){
 
 		//put code for filter
 
+		lockboxInbound.fileInProcess = Math.floor((Math.random() * 100) + 1);
+		lockboxInbound.fileInError = Math.floor((Math.random() * 10));
+		lockboxInbound.fileProcessed = Math.floor((Math.random() * 100) + 200);
+		res.send(lockboxInbound);
+
 	}
 	else{
 
@@ -50,6 +55,10 @@ exports.lockboxOutboundHome = function(req, res){
 	if(groupCode && siteNumber){
 
 		//put code for filter
+		lockboxOutbound.fileInProcess = Math.floor((Math.random() * 100) + 1);
+		lockboxOutbound.fileInError = Math.floor((Math.random() * 10));
+		lockboxOutbound.fileProcessed = Math.floor((Math.random() * 1000) + 200);
+		res.send(lockboxOutbound);
 
 	}
 	else{
@@ -79,6 +88,11 @@ exports.lockboxKeyInHome = function(req, res){
 	if(groupCode && siteNumber && org){
 
 		//put code for filter
+		lockboxKeyIn.assigned = Math.floor((Math.random() * 100) + 99);
+		lockboxKeyIn.inProgress = Math.floor((Math.random() * 100) + 100);
+		lockboxKeyIn.completed = Math.floor((Math.random() * 100) + 300);
+		lockboxKeyIn.submitted = Math.floor((Math.random() * 1000) + 1);
+		res.send(lockboxKeyIn);
 
 	}
 	else{
@@ -110,6 +124,15 @@ exports.lockboxKeyInWorkList = function(req, res){
 	if(groupCode && siteNumber && org){
 
 		//put code for filter
+
+		lockboxKeyInWorkList.assigned = Math.floor((Math.random() * 100) + 99);
+		lockboxKeyInWorkList.unassigned = Math.floor((Math.random() * 100) + 49);
+		lockboxKeyInWorkList.inProgress = Math.floor((Math.random() * 100) + 10);
+		lockboxKeyInWorkList.completed = Math.floor((Math.random() * 100) + 30);
+		lockboxKeyInWorkList.submitted = Math.floor((Math.random() * 1000) + 1);
+		lockboxKeyInWorkList.rejected = Math.floor((Math.random() * 10) + 1);
+		res.send(lockboxKeyInWorkList);
+
 
 	}
 	else{
@@ -147,6 +170,11 @@ exports.claimHome = function(req, res){
 	if(groupCode && siteNumber){
 
 		//put code for filter
+		claimHome.fileInProcess = Math.floor((Math.random() * 100) + 1);
+		claimHome.fileInError = Math.floor((Math.random() * 10));
+		claimHome.fileProcessed = Math.floor((Math.random() * 1000) + 1);
+		res.send(claimHome);
+
 
 	}
 	else{
@@ -176,6 +204,18 @@ exports.lockboxInboundDetail = function(req, res){
 	if(groupCode && siteNumber){
 
 		//put code for filter
+		for (var stepCount =1 ; stepCount<= 9 ; stepCount++){
+			//console.log(stepCount);
+			var step = "STEP" + stepCount;
+			lockboxInboundDetailList[step] = {};
+			lockboxInboundDetailList[step]["fileInProcess"] = Math.floor((Math.random() * 100) + 1);
+			lockboxInboundDetailList[step]["fileInError"] = Math.floor((Math.random() * 10) );
+
+
+		}
+		
+		res.send(lockboxInboundDetailList);
+
 
 	}
 	else{
@@ -210,6 +250,17 @@ exports.lockboxOutboundDetail = function(req, res){
 	if(groupCode && siteNumber){
 
 		//put code for filter
+			for (var stepCount =1 ; stepCount<= 7 ; stepCount++){
+			//console.log(stepCount);
+			var step = "STEP" + stepCount;
+			lockboxOutboundDetailList[step] = {};
+			lockboxOutboundDetailList[step]["fileInProcess"] = Math.floor((Math.random() * 100) + 1);
+			lockboxOutboundDetailList[step]["fileInError"] = Math.floor((Math.random() * 10) + 1);
+
+
+		}
+		
+		res.send(lockboxOutboundDetailList);
 
 	}
 	else{
@@ -246,6 +297,17 @@ exports.claimDetail = function(req, res){
 	if(groupCode && siteNumber){
 
 		//put code for filter
+		for (var stepCount =1 ; stepCount<= 5 ; stepCount++){
+			//console.log(stepCount);
+			var step = "STEP" + stepCount;
+			claimDetail[step] = {};
+			claimDetail[step]["fileInProcess"] = Math.floor((Math.random() * 100) + 1);
+			claimDetail[step]["fileInError"] = Math.floor((Math.random() * 10));
+
+
+		}
+		
+		res.send(claimDetail);
 
 	}
 	else{
@@ -285,11 +347,6 @@ exports.users = function(req, res){
 
 		res.status(403).send();
 	}
-
-
-
-
-
 
 
 };
