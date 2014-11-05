@@ -274,7 +274,7 @@ exports.users = function(req, res){
 
 	var name = req.body.name;
 	var email = req.body.email;
-	var registrationDate = new Date(req.body.registrationDate);
+	var registrationDate = req.body.registrationDate;
 	var deviceID = req.body.deviceID;
 
 	if(deviceID === '6ac90d0e-20db-4766-9767-c675bde0ef1f' && name && email && registrationDate){
